@@ -1,0 +1,15 @@
+// themes/index.ts
+export type ThemeName =
+    | "obsidian"
+    | "nord"
+    | "dracula"
+    | "tokyoNight"
+    | "gruvbox"
+    | "light"
+    | "catppuccin"
+    | "catppuccinLatte"
+    | "moonfly"
+    | "ayu"
+    | "ayuLight"
+    | "rosePine"
+    | "rosePineDawn"

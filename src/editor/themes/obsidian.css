@@ -1,0 +1,60 @@
+.theme-obsidian {
+    --cm-background:   #1e1e2e;
+    --cm-foreground:   #cdd6f4;
+    --cm-cursor:       #cba6f7;
+    --cm-selection:    #313244;
+    --cm-activeLine:   #28283d;
+    --cm-gutter:       #585b70;
+    
+    /* Heading */
+    --cm-h1:           #cba6f7;
+    --cm-h2:           #89b4fa;
+    --cm-h3:           #89dceb;
+    --cm-h4:           #a6e3a1;
+    --cm-h5:           #f9e2af;
+    --cm-h6:           #f38ba8;
+
+    /*  */
+    --cm-strong:       #cdd6f4;
+    --cm-emphasis:     #cdd6f4;
+    --cm-deleted:      #f38ba8;
+    --cm-monospace:    #a6e3a1;
+    --cm-link:         #89b4fa;
+    --cm-url:          #74c7ec;
+    --cm-quote:        #a6adc8;
+    --cm-list:         #f38ba8;
+    --cm-punctuation:  #585b70;
+
+
+    /* Inline CodeText */
+    --cm-inline-bg:   #313244; /* Surface0 background */
+    --cm-inline-text: #94e2d5; /* Teal text */
+    
+    /* FoldMarker */
+    --cm-foldMarker:          #585b70;
+    --cm-foldMarkerHover:     #cba6f7;
+
+    /* HTML BLock */
+    --cm-htmlblockHover: #585b70;
+
+    /* Fenced Code */
+    --cm-codeblock-bg: #181825;
+    --cm-codeblock-border: #313244; /* Surface0 */
+    --cm-codeblock-accent: #cba6f7; /* Lavender accent */
+
+
+    /* Code Syntax Tokens */
+    --cm-keyword:      #cba6f7; /* Lavender */
+    --cm-variable:     #89b4fa; /* Blue */
+    --cm-type:         #f9e2af; /* Yellow */
+    --cm-tag:          #f38ba8; /* Red */
+    --cm-property:     #89dceb; /* Sky */
+    --cm-attribute:    #a6e3a1; /* Green */
+    --cm-number:       #fab387; /* Peach (or #f9e2af) */
+    --cm-operator:     #89dceb; /* Sky */
+    --cm-comment:      #6c7086; /* Overlay/Grey */
+    --cm-regexp:       #94e2d5; /* Teal */
+    /* --cm-foldPlaceholder:     #cdd6f4;
+    --cm-foldPlaceholderBg:   #313244; */
+}
+

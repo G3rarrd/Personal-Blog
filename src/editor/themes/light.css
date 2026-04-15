@@ -1,0 +1,25 @@
+.theme-light {
+    --cm-background:   #fafafa;
+    --cm-foreground:   #383a42;
+    --cm-cursor:       #526fff;
+    --cm-selection:    #e5e5e6;
+    --cm-activeLine:   #f0f0f0;
+    --cm-gutter:       #9d9d9f;
+
+    --cm-h1:           #a626a4;
+    --cm-h2:           #a626a4;
+    --cm-h3:           #a626a4;
+    --cm-h4:           #a626a4;
+    --cm-h5:           #a626a4;
+    --cm-h6:           #a626a4;
+
+    --cm-strong:       #383a42;
+    --cm-emphasis:     #383a42;
+    --cm-deleted:      #e45649;
+    --cm-monospace:    #50a14f;
+    --cm-link:         #4078f2;
+    --cm-url:          #0184bc;
+    --cm-quote:        #9d9d9f;
+    --cm-list:         #e45649;
+    --cm-punctuation:  #c8c8c8;
+}

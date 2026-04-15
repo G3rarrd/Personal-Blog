@@ -1,0 +1,28 @@
+.theme-rosePineDawn {
+    --cm-background:   #faf4ed;
+    --cm-foreground:   #575279;
+    --cm-cursor:       #b4637a;
+    --cm-selection:    #dfdad9;
+    --cm-activeLine:   #f2e9e1;
+    --cm-gutter:       #9893a5;
+
+    --cm-h1:           #b4637a;
+    --cm-h2:           #907aa9;
+    --cm-h3:           #56949f;
+    --cm-h4:           #ea9d34;
+    --cm-h5:           #286983;
+    --cm-h6:           #d7827e;
+
+    --cm-strong:       #575279;
+    --cm-emphasis:     #575279;
+    --cm-deleted:      #b4637a;
+    --cm-monospace:    #286983;
+    --cm-link:         #907aa9;
+    --cm-url:          #56949f;
+    --cm-quote:        #9893a5;
+    --cm-list:         #b4637a;
+    --cm-punctuation:  #cecacd;
+
+    --cm-foldMarker:       #9893a5;
+    --cm-foldMarkerHover:  #b4637a;
+}

@@ -1,0 +1,53 @@
+.theme-tokyoNight {
+    --cm-background:   #1a1b26;
+    --cm-foreground:   #c0caf5;
+    --cm-cursor:       #bb9af7;
+    --cm-selection:    #283457;
+    --cm-activeLine:   #1f2335;
+    --cm-gutter:       #565f89;
+
+    --cm-h1:           #bb9af7;
+    --cm-h2:           #7aa2f7;
+    --cm-h3:           #2ac3de;
+    --cm-h4:           #9ece6a;
+    --cm-h5:           #e0af68;
+    --cm-h6:           #f7768f;
+
+    --cm-strong:       #c0caf5;
+    --cm-emphasis:     #c0caf5;
+    --cm-deleted:      #f7768e;
+    --cm-monospace:    #9ece6a;
+    --cm-link:         #7aa2f7;
+    --cm-url:          #73daca;
+    --cm-quote:        #565f89;
+    --cm-list:         #f7768e;
+    --cm-punctuation:  #565f89;
+
+    /* Inline Code Text */
+    --cm-inline-bg:   #292e42; /* Soft navy background */
+    --cm-inline-text: #73daca; /* Vibrant teal/cyan */
+
+    /* Fold Markers */
+    --cm-foldMarker:          #565f89;
+    --cm-foldMarkerHover:     #bb9af7;
+    /*  */
+    --cm-htmlblockHover:      #3b4261; 
+
+    /* Fenced Code Block */
+    --cm-codeblock-bg:        #16161e; 
+    --cm-codeblock-border: #292e42; /* Subtle navy-gray */
+
+
+    /* Code Syntax Tokens */
+    --cm-keyword:      #bb9af7; /* Purple */
+    --cm-variable:     #7aa2f7; /* Blue */
+    --cm-type:         #2ac3de; /* Cyan */
+    --cm-tag:          #f7768e; /* Red/Pink */
+    --cm-property:     #73daca; /* Teal */
+    --cm-attribute:    #bb9af7; /* Purple */
+    --cm-number:       #ff9e64; /* Orange (Standard Tokyo Night) */
+    --cm-operator:     #89ddff; /* Light Blue */
+    --cm-comment:      #565f89; /* Blue-Gray */
+    --cm-regexp:       #b4f9f8; /* Light Cyan */
+    --cm-string:       #9ece6a; /* Green */
+}

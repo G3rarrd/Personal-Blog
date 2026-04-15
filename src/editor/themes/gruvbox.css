@@ -1,0 +1,25 @@
+.theme-gruvbox {
+    --cm-background:   #282828;
+    --cm-foreground:   #ebdbb2;
+    --cm-cursor:       #fabd2f;
+    --cm-selection:    #3c3836;
+    --cm-activeLine:   #32302f;
+    --cm-gutter:       #504945;
+
+    --cm-h1:           #fb4934;
+    --cm-h2:           #fabd2f;
+    --cm-h3:           #b8bb26;
+    --cm-h4:           #8ec07c;
+    --cm-h5:           #83a598;
+    --cm-h6:           #d3869b;
+
+    --cm-strong:       #ebdbb2;
+    --cm-emphasis:     #ebdbb2;
+    --cm-deleted:      #fb4934;
+    --cm-monospace:    #8ec07c;
+    --cm-link:         #83a598;
+    --cm-url:          #d3869b;
+    --cm-quote:        #928374;
+    --cm-list:         #fe8019;
+    --cm-punctuation:  #504945;
+}
