@@ -60,12 +60,12 @@ export const hideMarkdownSyntaxPlugin = ViewPlugin.fromClass(
                     // console.log(node.name, node.from, node.to)
                     
                     // DEBUG
-                    // console.log(text, name)
+                    console.log(text, name)
                     
                     const cursorNotAtLine : boolean = cursorLine.number !== line.number;
                     
                     // Hide '#' symbol when cursor is not on the line
-                    if (name == "HeaderMark" && cursorNotAtLine) {
+                    if (name === "HeaderMark" && cursorNotAtLine) {
                         ranges.push({from : from , to : to, decoration : Decoration.replace({})});
                     }
 
