@@ -73,32 +73,43 @@ h1, .cm-h1 {
     font-weight: 700; 
     color: var(--cm-h1); line-height: 1.3; 
 }
+
 h2, .cm-h2 { 
     font-size: 1.6em; 
     font-weight: 700; 
     color: var(--cm-h2); line-height: 1.3; 
 }
+
 h3, .cm-h3 { 
     font-size: 1.3em; 
     font-weight: 600; 
     color: var(--cm-h3); line-height: 1.3; 
 }
+
 h4, .cm-h4 { 
     font-size: 1.1em; 
     font-weight: 600; 
     color: var(--cm-h4); line-height: 1.3; 
 }
+
 h5, .cm-h5 { 
     font-size: 1em;   
     font-weight: 600; 
     color: var(--cm-h5); line-height: 1.3; 
 }
+
 h6, .cm-h6 { 
     font-size: 1em;   
     font-weight: 600; 
     color: var(--cm-h6); line-height: 1.3; 
 }
 
+.cm-hr-line {
+    border-bottom: 2px solid var(--cm-hr);
+}
+
+/*#region*/
+/* Region : Code block Stylings of Text */
 /* Names */
 .cmt-name          { color: var(--cm-foreground); }
 .cmt-variableName  { color: var(--cm-variable); }
@@ -156,6 +167,7 @@ h6, .cm-h6 {
 .cmt-lineComment   { color: var(--cm-comment); font-style: italic; }
 .cmt-blockComment  { color: var(--cm-comment); font-style: italic; }
 .cmt-docComment    { color: var(--cm-comment); font-style: italic; }
+/*#endregion*/
 
 /* Editor structure */
 .cm-editor { 

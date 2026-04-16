@@ -1,7 +1,7 @@
 import { WidgetType } from "@codemirror/view";
 
 export class HorizontalRuleWidget extends WidgetType {
-    constructor (html : string, parentTag : string) {
+    constructor () {
         super();
     }
 

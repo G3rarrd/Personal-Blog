@@ -44,7 +44,7 @@ export const hideMarkdownSyntaxPlugin = ViewPlugin.fromClass(
             const state  = view.state
             const builder : RangeSetBuilder<Decoration> = new RangeSetBuilder<Decoration>();
             const tree = syntaxTree(state );
-            const ranges : DecorationRange[] = [] 
+            const ranges : DecorationRange[] = [];
 
             const doc = state.doc;
             const cursorPos = state.selection.main.head;

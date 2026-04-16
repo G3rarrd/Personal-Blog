@@ -21,16 +21,12 @@ import { ThemeName } from "@/editor/themes";
 import "../editor/themes/base.css"
 import "../editor/themes/obsidian.css"
 import "../editor/themes/tokyoNight.css"
-import "../editor/themes/dracula.css"
-import "../editor/themes/light.css"
-import "../editor/themes/nord.css"
-import "../editor/themes/gruvbox.css"
-import "../editor/themes/catppuccin.css"
-import "../editor/themes/rosePineDawn.css"
+
 import { renderToStaticMarkup } from "react-dom/server";
 import { classHighlightStyle } from "@/editor/themes/highlightStyle";
 import { html } from "@codemirror/lang-html";
 import { CodeBlockPlugin } from "@/editor/plugins/codeBlockPlugin";
+import { horizontalRulePlugin } from "@/editor/plugins/horizontalRulePlugin";
 
 interface MarkdownEditor {
     flexRatio: number;
@@ -94,6 +90,7 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
                 syntaxHighlighting(classHighlightStyle),
                 
                 // My custom Plugins
+                horizontalRulePlugin,
                 headingPlugin,
                 hideMarkdownSyntaxPlugin,
                 hideHtmlPlugin,

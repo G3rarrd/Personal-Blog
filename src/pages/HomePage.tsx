@@ -24,7 +24,7 @@ const HomePage = () => {
             />
             <MarkdownEditor
             flexRatio={ratio}
-            theme={'tokyoNight'}
+            theme={'obsidian'}
             />
         </div>
     )
