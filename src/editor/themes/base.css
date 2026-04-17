@@ -244,7 +244,8 @@ h6, .cm-h6 {
     white-space: normal; 
 }
 
-.cm-html-block div {
+.cm-html-block div,
+.cm-html-block section {
     border-width : 0.1rem;
     border-style: solid;
     border-color: transparent;
@@ -252,7 +253,8 @@ h6, .cm-h6 {
     transition: border-color 0.1s;
 }
 
-.cm-html-block div:hover {
+.cm-html-block div:hover,
+.cm-html-block section:hover {
     border-width : 0.1rem;
     border-style: solid;
     border-color: var(--cm-htmlblockHover);

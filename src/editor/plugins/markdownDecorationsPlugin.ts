@@ -2,24 +2,17 @@ import { syntaxTree } from "@codemirror/language";
 import { RangeSetBuilder } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView, ViewPlugin, ViewUpdate } from "@codemirror/view";
 import { DecorationRange } from "../types/DecorationRange";
-import { LinkWidget } from "../widgets/linkWidget";
 import { linkDecorator } from "../decorators/linkDecorator";
 import { hideInlineMarkdownsDecorator, inlineNodes } from "../decorators/hideInlineMarkdownDecorators";
 import { hideHeaderMarkerDecorator } from "../decorators/hideHeaderMarkDecorator";
-import { SyntaxNodeRef } from "@lezer/common";
 import { fencedCodeDecorator } from "../decorators/fencedCodeDecorator";
 import { headingDecorator, headingNodes } from "../decorators/headingDecorator";
 import { horizontalRuleDecorator } from "../decorators/horizontalLineDecoration";
 import { listMarkDecorator, listMarkNode as listMarkNodes } from "../decorators/listMarkDecorator";
-
-type decoratorFn = (
-    view: EditorView, 
-    node: SyntaxNodeRef, 
-    ranges: DecorationRange[]
-) => void;
+import { DecoratorFn } from "../types/DecoratorFn";
 
 
-const decoratorConfig: Partial<Record<string, decoratorFn>> = {
+const decoratorConfig: Partial<Record<string, DecoratorFn>> = {
     HeaderMark: hideHeaderMarkerDecorator,
     Link: linkDecorator,
     FencedCode: fencedCodeDecorator,
@@ -28,20 +21,20 @@ const decoratorConfig: Partial<Record<string, decoratorFn>> = {
   
     ...Object.fromEntries(
     [...headingNodes].map(
-        (name): [string, decoratorFn] => [name, headingDecorator]
-    )
+            (name): [string, DecoratorFn] => [name, headingDecorator]
+        )
     ),
 
     ...Object.fromEntries(
     [...inlineNodes].map(
-        (name): [string, decoratorFn] => [name, hideInlineMarkdownsDecorator]
-    )
+            (name): [string, DecoratorFn] => [name, hideInlineMarkdownsDecorator]
+        )
     ),
 
     ...Object.fromEntries(
     [...listMarkNodes].map(
-        (name): [string, decoratorFn] => [name, listMarkDecorator]
-    )
+            (name): [string, DecoratorFn] => [name, listMarkDecorator]
+        )
     ),
 };
 
