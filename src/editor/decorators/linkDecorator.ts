@@ -14,11 +14,11 @@ function isValidUrl(url: string): boolean {
     }
 }
 
-export function linkDecorator(
+export const linkDecorator = (
     view : EditorView, 
     node : SyntaxNodeRef, 
     ranges : DecorationRange[]
-) {
+) : void => {
 
     if (node.name !== "Link") return ;
 

@@ -108,7 +108,6 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
     >
         <div 
             ref={editorRef} 
-            
             className={`theme-${theme} w-full max-w-4xl h-80`} 
         />
     </div>

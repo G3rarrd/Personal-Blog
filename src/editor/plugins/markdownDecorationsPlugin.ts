@@ -10,6 +10,7 @@ import { SyntaxNodeRef } from "@lezer/common";
 import { fencedCodeDecorator } from "../decorators/fencedCodeDecorator";
 import { headingDecorator, headingNodes } from "../decorators/headingDecorator";
 import { horizontalRuleDecorator } from "../decorators/horizontalLineDecoration";
+import { bulletDecorator } from "../decorators/listMarkDecorator";
 
 type decoratorFn = (
     view: EditorView, 
@@ -18,13 +19,13 @@ type decoratorFn = (
 ) => void;
 
 
-
 const decoratorConfig: Partial<Record<string, decoratorFn>> = {
   HeaderMark: hideHeaderMarkerDecorator,
   Link: linkDecorator,
   FencedCode: fencedCodeDecorator,
   HorizontalRule: horizontalRuleDecorator,
-
+  ListMark: bulletDecorator,
+  
   ...Object.fromEntries(
     [...headingNodes].map(
       (name): [string, decoratorFn] => [name, headingDecorator]
@@ -36,6 +37,7 @@ const decoratorConfig: Partial<Record<string, decoratorFn>> = {
       (name): [string, decoratorFn] => [name, hideInlineMarkdownsDecorator]
     )
   ),
+
 };
 
 
@@ -43,7 +45,7 @@ export const markdownDecorationsPlugin = ViewPlugin.fromClass(
     class {
         decorations : DecorationSet
         constructor(view : EditorView) {
-            this.decorations = this.build(view)
+            this.decorations = this.build(view);
         }
 
         update(update : ViewUpdate) {
@@ -57,15 +59,13 @@ export const markdownDecorationsPlugin = ViewPlugin.fromClass(
             const ranges : DecorationRange[] = [];
             const builder : RangeSetBuilder<Decoration> = new RangeSetBuilder<Decoration>();
 
-            const tree = syntaxTree(state);
-
-            tree.iterate({
-            enter: (node) => {
-                const decorator = decoratorConfig[node.name];
-                if (!decorator) return;
-
-                decorator(view, node, ranges);
-            }
+            syntaxTree(state).iterate({
+                enter: (node) => {
+                    console.log(node.name, state.doc.sliceString(node.from, node.to))
+                    const decorator = decoratorConfig[node.name];
+                    if (!decorator) return;
+                    decorator(view, node, ranges);
+                }
             });
 
             ranges.sort((a, b) => {
@@ -73,12 +73,13 @@ export const markdownDecorationsPlugin = ViewPlugin.fromClass(
                     return a.from - b.from;
                 }
                 return a.to - b.to;
-            })
+            });
 
             for (let r of ranges) {
                 builder.add(r.from, r.to, r.decoration);
             }
 
-            return builder.finish()
+            return builder.finish();
         }
-    }, {decorations : view => view.decorations})
+
+    }, {decorations : view => view.decorations});
