@@ -21,15 +21,16 @@ export const horizontalRuleDecorator = (
     const cursorNotAtLine = cursorLine.number !== line.number;
 
     if (node.name !== "HorizontalRule") return;
+    
     if (!cursorNotAtLine) return;
 
     const deco = Decoration.replace({
-    widget: new HorizontalRuleWidget()
+        widget: new HorizontalRuleWidget()
     });
 
     ranges.push({
-    from,
-    to,
-    decoration: deco
+        from,
+        to,
+        decoration: deco
     });
 };

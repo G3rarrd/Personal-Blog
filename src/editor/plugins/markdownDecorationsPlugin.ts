@@ -10,7 +10,7 @@ import { SyntaxNodeRef } from "@lezer/common";
 import { fencedCodeDecorator } from "../decorators/fencedCodeDecorator";
 import { headingDecorator, headingNodes } from "../decorators/headingDecorator";
 import { horizontalRuleDecorator } from "../decorators/horizontalLineDecoration";
-import { bulletDecorator } from "../decorators/listMarkDecorator";
+import { listMarkDecorator, listMarkNode as listMarkNodes } from "../decorators/listMarkDecorator";
 
 type decoratorFn = (
     view: EditorView, 
@@ -20,24 +20,29 @@ type decoratorFn = (
 
 
 const decoratorConfig: Partial<Record<string, decoratorFn>> = {
-  HeaderMark: hideHeaderMarkerDecorator,
-  Link: linkDecorator,
-  FencedCode: fencedCodeDecorator,
-  HorizontalRule: horizontalRuleDecorator,
-  ListMark: bulletDecorator,
+    HeaderMark: hideHeaderMarkerDecorator,
+    Link: linkDecorator,
+    FencedCode: fencedCodeDecorator,
+    HorizontalRule: horizontalRuleDecorator,
+    ListMark: listMarkDecorator,
   
-  ...Object.fromEntries(
+    ...Object.fromEntries(
     [...headingNodes].map(
-      (name): [string, decoratorFn] => [name, headingDecorator]
+        (name): [string, decoratorFn] => [name, headingDecorator]
     )
-  ),
+    ),
 
-  ...Object.fromEntries(
+    ...Object.fromEntries(
     [...inlineNodes].map(
-      (name): [string, decoratorFn] => [name, hideInlineMarkdownsDecorator]
+        (name): [string, decoratorFn] => [name, hideInlineMarkdownsDecorator]
     )
-  ),
+    ),
 
+    ...Object.fromEntries(
+    [...listMarkNodes].map(
+        (name): [string, decoratorFn] => [name, listMarkDecorator]
+    )
+    ),
 };
 
 
@@ -61,7 +66,7 @@ export const markdownDecorationsPlugin = ViewPlugin.fromClass(
 
             syntaxTree(state).iterate({
                 enter: (node) => {
-                    console.log(node.name, state.doc.sliceString(node.from, node.to))
+                    // console.log(node.name, state.doc.sliceString(node.from, node.to))
                     const decorator = decoratorConfig[node.name];
                     if (!decorator) return;
                     decorator(view, node, ranges);
