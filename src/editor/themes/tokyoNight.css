@@ -6,12 +6,12 @@
     --cm-activeLine:   #1f2335;
     --cm-gutter:       #565f89;
 
-    --cm-h1:           #bb9af7;
-    --cm-h2:           #7aa2f7;
-    --cm-h3:           #2ac3de;
-    --cm-h4:           #9ece6a;
-    --cm-h5:           #e0af68;
-    --cm-h6:           #f7768f;
+    --cm-h1: #73daca; /* Cyan (Brightest) */
+    --cm-h2: #b4f9f8; /* Light Aqua */
+    --cm-h3: #a9b1d6; /* Default Text Blue-Gray */
+    --cm-h4: #9aa5ce; /* Muted Blue-Gray */
+    --cm-h5: #565f89; /* Deep Storm Gray */
+    --cm-h6: #414868; /* Darkest Navy */
 
     --cm-strong:       #c0caf5;
     --cm-emphasis:     #c0caf5;
@@ -20,7 +20,7 @@
     --cm-link:         #7aa2f7;
     --cm-url:          #73daca;
     --cm-quote:        #565f89;
-    --cm-list:         #f7768e;
+    --cm-list:         #a9b1d6;
     --cm-punctuation:  #565f89;
     --cm-hr:           #565f89;
 

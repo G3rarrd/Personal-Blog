@@ -11,8 +11,7 @@ import {  foldGutter, syntaxHighlighting, } from "@codemirror/language";
 // import { oneDark } from "@codemirror/theme-one-dark";
 import { indentationMarkers } from "@replit/codemirror-indentation-markers";
 import { languages } from "@codemirror/language-data"; // actual language data
-import { headingPlugin } from "@/editor/plugins/headingPlugin";
-import { hideMarkdownSyntaxPlugin } from "@/editor/plugins/hideMarkdownSyntaxPlugin";
+
 
 import { hideHtmlPlugin } from "@/editor/plugins/hideHtmlPlugin";
 import { ThemeName } from "@/editor/themes";
@@ -21,12 +20,11 @@ import { ThemeName } from "@/editor/themes";
 import "../editor/themes/base.css"
 import "../editor/themes/obsidian.css"
 import "../editor/themes/tokyoNight.css"
+import "../editor/themes/nord.css"
 
 import { renderToStaticMarkup } from "react-dom/server";
 import { classHighlightStyle } from "@/editor/themes/highlightStyle";
-import { html } from "@codemirror/lang-html";
-import { CodeBlockPlugin } from "@/editor/plugins/codeBlockPlugin";
-import { horizontalRulePlugin } from "@/editor/plugins/horizontalRulePlugin";
+import { markdownDecorationsPlugin } from "@/editor/plugins/markdownDecorationsPlugin";
 
 interface MarkdownEditor {
     flexRatio: number;
@@ -74,27 +72,12 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
                             addKeymap: true,
                         }),
 
-                // Disable inbrower auto-correct including grammarly
-                EditorView.contentAttributes.of({
-                    // Specifically for Grammarly
-                    "data-gramm": "false",
-                    "data-gramm_editor": "false",
-                    "data-enable-grammarly": "false",
-                    
-                    // For browser native features that also mess with code
-                    "spellcheck": "false",
-                    "autocorrect": "off",
-                    "autocapitalize": "off"
-                    }),
 
                 syntaxHighlighting(classHighlightStyle),
                 
                 // My custom Plugins
-                horizontalRulePlugin,
-                headingPlugin,
-                hideMarkdownSyntaxPlugin,
+                markdownDecorationsPlugin,
                 hideHtmlPlugin,
-                CodeBlockPlugin,
             ]
         })
 
@@ -113,6 +96,8 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
         }
     }, [])
 
+    console.log(theme)
+
   return (
     <div 
         className={`flex justify-center w-full h-full overflow-auto theme-${theme}`} 
@@ -123,6 +108,7 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
     >
         <div 
             ref={editorRef} 
+            
             className={`theme-${theme} w-full max-w-4xl h-80`} 
         />
     </div>

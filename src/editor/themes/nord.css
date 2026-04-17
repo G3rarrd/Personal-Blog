@@ -1,4 +1,4 @@
-.theme-nord {
+.theme-nord{
     --cm-background:   #2e3440;
     --cm-foreground:   #d8dee9;
     --cm-cursor:       #88c0d0;
@@ -6,12 +6,12 @@
     --cm-activeLine:   #3b4252;
     --cm-gutter:       #4c566a;
 
-    --cm-h1:           #88c0d0;
-    --cm-h2:           #81a1c1;
-    --cm-h3:           #5e81ac;
-    --cm-h4:           #a3be8c;
-    --cm-h5:           #ebcb8b;
-    --cm-h6:           #bf616a;
+    --cm-h1:           #eceff4; /* Nord 6: brightest */
+    --cm-h2:           #e5e9f0; /* Nord 5 */
+    --cm-h3:           #d8dee9; /* Nord 4 */
+    --cm-h4:           #adb5c4; /* between Nord 4 and Nord 3 */
+    --cm-h5:           #7b88a0; /* muted */
+    --cm-h6:           #616e88; /* Nord 3: darkest */
 
     --cm-strong:       #d8dee9;
     --cm-emphasis:     #d8dee9;
@@ -20,6 +20,38 @@
     --cm-link:         #88c0d0;
     --cm-url:          #81a1c1;
     --cm-quote:        #616e88;
-    --cm-list:         #bf616a;
+    --cm-list:         #e5e9f0;
     --cm-punctuation:  #4c566a;
+    --cm-hr:           #4c566a; /* Nord 3 */
+
+    /* Inline CodeText (using Nord 1 and Nord 7) */
+    --cm-inline-bg:   #3b4252; 
+    --cm-inline-text: #8fbcbb;
+    
+    /* FoldMarker (Nord 3 and Nord 8) */
+    --cm-foldMarker:          #4c566a;
+    --cm-foldMarkerHover:     #88c0d0; /* Nord 8: Bright Cyan */
+
+    /* HTML Block Hover */
+    --cm-htmlblockHover:      #3b4252; /* Nord 1 */
+
+    /* Fenced Code (Using a slightly darker "Polar Night" depth) */
+    --cm-codeblock-bg:        #242933; /* Darker Polar Night */
+    --cm-codeblock-border:    #3b4252; /* Nord 1 */
+    --cm-codeblock-accent:    #81a1c1; /* Nord 9: Frost Blue */
+
+    /* Horizontal Rule */
+
+    /* Code Syntax Tokens (Official Nord Palette) */
+    --cm-keyword:      #81a1c1; /* Nord 9: Frost Blue */
+    --cm-variable:     #d8dee9; /* Nord 4: Snow Storm (White) */
+    --cm-type:         #8fbcbb; /* Nord 7: Frost Turquoise */
+    --cm-tag:          #81a1c1; /* Nord 9 */
+    --cm-property:     #88c0d0; /* Nord 8: Frost Cyan */
+    --cm-attribute:    #8fbcbb; /* Nord 7 */
+    --cm-number:       #b48ead; /* Nord 15: Aurora Purple */
+    --cm-operator:     #81a1c1; /* Nord 9 */
+    --cm-comment:      #616e88; /* Nord 3 + Light: Gray-blue */
+    --cm-regexp:       #ebcb8b;
+    --cm-string:       #a3be8c;
 }

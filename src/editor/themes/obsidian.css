@@ -5,14 +5,13 @@
     --cm-selection:    #313244;
     --cm-activeLine:   #28283d;
     --cm-gutter:       #585b70;
-    
-    /* Heading */
-    --cm-h1:           #cba6f7;
-    --cm-h2:           #89b4fa;
-    --cm-h3:           #89dceb;
-    --cm-h4:           #a6e3a1;
-    --cm-h5:           #f9e2af;
-    --cm-h6:           #f38ba8;
+
+    --cm-h1:           #cdd6f4; /* Text — base foreground */
+    --cm-h2:           #bac2de; /* Subtext 1 */
+    --cm-h3:           #a6adc8; /* Subtext 0 */
+    --cm-h4:           #7f849c; /* Overlay 2 */
+    --cm-h5:           #6c7086; /* Overlay 1 */
+    --cm-h6:           #585b70; /* Overlay 0 — matches gutter */
 
     /*  */
     --cm-strong:       #cdd6f4;
@@ -22,7 +21,7 @@
     --cm-link:         #89b4fa;
     --cm-url:          #74c7ec;
     --cm-quote:        #a6adc8;
-    --cm-list:         #f38ba8;
+    --cm-list:         #bac2de;
     --cm-punctuation:  #585b70;
     --cm-hr:           #585b70;
 
