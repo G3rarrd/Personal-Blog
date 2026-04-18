@@ -108,7 +108,9 @@ function build(state: EditorState): DecorationSet {
 
         return res;
     };
+
     const mergedRegions : HTMLRegion[] = mergeRegions(htmlBlockRegions);
+    
     for (const region of mergedRegions) {
         const { parentTag, from, to } = region;
 

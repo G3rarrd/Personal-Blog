@@ -25,6 +25,7 @@ import "../editor/themes/nord.css"
 import { renderToStaticMarkup } from "react-dom/server";
 import { classHighlightStyle } from "@/editor/themes/highlightStyle";
 import { markdownDecorationsPlugin } from "@/editor/plugins/markdownDecorationsPlugin";
+import { keymaps } from "@/editor/keymaps";
 
 interface MarkdownEditor {
     flexRatio: number;
@@ -47,10 +48,7 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
             extensions:[
                 // Basic Editor Setup
                 minimalSetup,
-                keymap.of([
-                    { key: "Tab", run: indentMore },
-                    { key: "Shift-Tab", run: indentLess }
-                ]),
+                keymaps,
                 
                 EditorView.lineWrapping, // <-- This enables wrapping
                 
