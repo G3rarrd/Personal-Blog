@@ -2,11 +2,8 @@ import { syntaxTree } from "@codemirror/language";
 import { SyntaxNode } from "@lezer/common";
 import { EditorSelection, StateCommand, Transaction } from "@codemirror/state";
 import { handleNonSelection, trimRange } from "./utils";
+import { MarkConfig } from "../types/MarkConfig";
 
-type MarkConfig = {
-  nodeName: string;
-  marker: string;
-};
 
 export const toggleMark = (config: MarkConfig): StateCommand => {
   return ({ state, dispatch }) => {
@@ -19,14 +16,12 @@ export const toggleMark = (config: MarkConfig): StateCommand => {
       const tree = syntaxTree(state);
       let node: SyntaxNode | null = tree.resolve(from, 0);
 
-      // 1. climb to target node
       while (node && node.name !== config.nodeName) {
         node = node.parent;
       }
 
       const len = config.marker.length;
 
-      // 2. REMOVE
       if (node) {
         const inner = doc.sliceString(node.from + len, node.to - len);
 
@@ -43,7 +38,6 @@ export const toggleMark = (config: MarkConfig): StateCommand => {
         };
       }
 
-      // 3. REMOVE inner marks (flatten)
       const toRemove: { from: number; to: number }[] = [];
 
       tree.iterate({
@@ -70,7 +64,6 @@ export const toggleMark = (config: MarkConfig): StateCommand => {
           text.slice(r.to - from);
       }
 
-      // Initial new Text to be added
       let insertText : string = `${config.marker}${text}${config.marker}`;
 
       if (insertText === tmpText) {
@@ -88,7 +81,6 @@ export const toggleMark = (config: MarkConfig): StateCommand => {
         };
       }
 
-      // 4. ADD
       return {
         changes: {
           from,
