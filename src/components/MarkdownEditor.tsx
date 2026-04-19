@@ -25,7 +25,7 @@ import "../editor/themes/nord.css"
 import { renderToStaticMarkup } from "react-dom/server";
 import { classHighlightStyle } from "@/editor/themes/highlightStyle";
 import { markdownDecorationsPlugin } from "@/editor/plugins/markdownDecorationsPlugin";
-import { keymaps } from "@/editor/keymaps";
+import { keymaps as myKeymaps } from "@/editor/keymaps";
 
 interface MarkdownEditor {
     flexRatio: number;
@@ -47,8 +47,8 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
             doc: value,
             extensions:[
                 // Basic Editor Setup
+                myKeymaps,
                 minimalSetup,
-                keymaps,
                 
                 EditorView.lineWrapping, // <-- This enables wrapping
                 
@@ -67,7 +67,6 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
                  markdown({
                             base: markdownLanguage,
                             codeLanguages: languages,
-                            addKeymap: true,
                         }),
 
 
