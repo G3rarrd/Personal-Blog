@@ -26,6 +26,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { classHighlightStyle } from "@/editor/themes/highlightStyle";
 import { markdownDecorationsPlugin } from "@/editor/plugins/markdownDecorationsPlugin";
 import { keymaps as myKeymaps } from "@/editor/keymaps";
+import { inlineSelectionPlugin } from "@/editor/plugins/inlineSelectionPlugin";
 
 interface MarkdownEditor {
     flexRatio: number;
@@ -46,10 +47,10 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
         EditorState.create({
             doc: value,
             extensions:[
-                // Basic Editor Setup
                 myKeymaps,
                 minimalSetup,
-                
+                // drawSelection(),
+                EditorState.allowMultipleSelections.of(true), // Required for multiple ranges
                 EditorView.lineWrapping, // <-- This enables wrapping
                 
                 // 
@@ -75,6 +76,7 @@ const MarkdownEditor = ({flexRatio, theme, value}: MarkdownEditor) => {
                 // My custom Plugins
                 markdownDecorationsPlugin,
                 hideHtmlPlugin,
+                inlineSelectionPlugin
             ]
         })
 

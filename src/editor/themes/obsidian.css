@@ -6,6 +6,8 @@
     --cm-activeLine:   #28283d;
     --cm-gutter:       #585b70;
 
+    --cm-heading: #cdd6f4; /* Text — base foreground */
+
     --cm-h1:           #cdd6f4; /* Text — base foreground */
     --cm-h2:           #bac2de; /* Subtext 1 */
     --cm-h3:           #a6adc8; /* Subtext 0 */

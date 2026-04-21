@@ -1,21 +1,30 @@
 /* Token colors — reference CSS vars set by each theme class */
 .cm-heading1 { 
-    color: var(--cm-h1); 
+    color: var(--cm-heading); 
 }
 .cmt-heading2 { 
-    color: var(--cm-h2); 
+    color: var(--cm-heading); 
 }
 .cmt-heading3 { 
-    color: var(--cm-h3); 
+    color: var(--cm-heading); 
 }
 .cmt-heading4 { 
-    color: var(--cm-h4); 
+    color: var(--cm-heading); 
 }
 .cmt-heading5 { 
-    color: var(--cm-h5); 
+    color: var(--cm-heading); 
 }
 .cmt-heading6 { 
-    color: var(--cm-h6); 
+    color: var(--cm-heading); 
+}
+
+.cmt-heading1.cmt-processingInstruction, 
+.cmt-heading2.cmt-processingInstruction,
+.cmt-heading3.cmt-processingInstruction,
+.cmt-heading4.cmt-processingInstruction,
+.cmt-heading5.cmt-processingInstruction,
+.cmt-heading6.cmt-processingInstruction {
+    opacity: 0.4;
 }
 
 .cmt-strong { 
@@ -189,12 +198,26 @@ h6, .cm-h6 {
     background-color: var(--cm-activeLine) !important; 
 }
 
-.cm-selectionBackground { 
-    background-color: var(--cm-selection) !important; 
+
+/* Custom selection class from the inline selection plugin */
+.cm-inline-selection {
+    display: inline-block;
+    padding: 0 0.25rem 0  0 ;
+    background-color: var(--cm-selection) !important;
+}
+
+/* Hide CodeMirror drawn selection */
+.cm-editor .cm-selectionBackground {
+  background: transparent !important;
+}
+
+/* Hide native selection */
+.cm-editor ::selection {
+  background: transparent;
 }
 
 .cm-cursor {
-     border-left-color: var(--cm-cursor) !important; 
+    border-left-color: var(--cm-cursor) !important; 
     border-left-width: 2px !important; 
 }
 
@@ -227,6 +250,10 @@ h6, .cm-h6 {
     background-color: transparent !important; 
     border: none !important;
  }
+
+.cm-content ::selection {
+  background-color: var(--cm-selection) !important;
+}
 
 
  /* Use white-space normal on 
@@ -263,14 +290,21 @@ h6, .cm-h6 {
 }
 
 /* Base styles shared by EVERY line in the block */
-.cm-codeblock {
-    /* background-color: var(--cm-codeblock-bg); */
+.cm-line.cm-codeblock {
+    position: relative;
+    z-index: 0;
+    background-color: var(--cm-codeblock-bg);
 
     border-left: 0.1rem solid var(--cm-codeblock-border);
     border-right: 0.1rem solid var(--cm-codeblock-border);
     
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+}
+
+
+.cm-selectionBackground {
+    z-index: 2 !important;
 }
 
 /* Specific to the First Line */

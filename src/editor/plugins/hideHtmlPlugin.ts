@@ -4,17 +4,9 @@ import { DecorationRange } from "../types/DecorationRange";
 import { syntaxTree } from "@codemirror/language";
 import { HTMLWidget } from "../widgets/htmlWidget";
 import { StateField, StateEffect } from "@codemirror/state";
+import { HTMLRegion } from "../types/HTMLRegion";
+import { HTMLStack } from "../types/HTMLStack";
 
-type HTMLRegion = {
-    parentTag : string;
-    from: number;
-    to: number;
-}
-
-type HTMLStack = {
-    tagName : string;
-    from : number;
-}
 
 export const hideHtmlPlugin = StateField.define<DecorationSet>({
     create(state : EditorState) {
@@ -32,6 +24,7 @@ export const hideHtmlPlugin = StateField.define<DecorationSet>({
 });
 
 function build(state: EditorState): DecorationSet {
+    
     const builder = new RangeSetBuilder<Decoration>();
     const htmlBlockRegions: HTMLRegion[] = [];
     const selfClosingTags : Set<string> = new Set(["area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"]);
@@ -115,7 +108,7 @@ function build(state: EditorState): DecorationSet {
         const { parentTag, from, to } = region;
 
         const cursorNotInRange = cursorPos < from || cursorPos > to; // outside range
-
+        
         if (cursorNotInRange) {
             const htmlCode = doc.sliceString(from, to);
             builder.add(
@@ -124,7 +117,5 @@ function build(state: EditorState): DecorationSet {
                 Decoration.replace({widget: new HTMLWidget(htmlCode, parentTag)}));
         }
     }
-
-
     return builder.finish();
 }

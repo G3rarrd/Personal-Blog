@@ -16,6 +16,7 @@ export const toggleMark = (config: MarkConfig): StateCommand => {
       const tree = syntaxTree(state);
       let node: SyntaxNode | null = tree.resolve(from, 0);
 
+      // Climb to the target node
       while (node && node.name !== config.nodeName) {
         node = node.parent;
       }
@@ -24,7 +25,6 @@ export const toggleMark = (config: MarkConfig): StateCommand => {
 
       if (node) {
         const inner = doc.sliceString(node.from + len, node.to - len);
-
         return {
           changes: {
             from: node.from,
@@ -67,8 +67,8 @@ export const toggleMark = (config: MarkConfig): StateCommand => {
       let insertText : string = `${config.marker}${text}${config.marker}`;
 
       if (insertText === tmpText) {
-          insertText = text;
-          return {
+        insertText = text;
+        return {
           changes: {
             from: from,
             to: to,
