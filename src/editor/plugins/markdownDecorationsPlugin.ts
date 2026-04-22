@@ -10,6 +10,7 @@ import { headingDecorator, headingNodes } from "../decorators/headingDecorator";
 import { horizontalRuleDecorator } from "../decorators/horizontalLineDecoration";
 import { listMarkDecorator, listMarkNode as listMarkNodes } from "../decorators/listMarkDecorator";
 import { DecoratorFn } from "../types/DecoratorFn";
+import { taskMarkerDecorator } from "../decorators/taskMarkerDecorator";
 
 
 const decoratorConfig: Partial<Record<string, DecoratorFn>> = {
@@ -18,6 +19,7 @@ const decoratorConfig: Partial<Record<string, DecoratorFn>> = {
     FencedCode: fencedCodeDecorator,
     HorizontalRule: horizontalRuleDecorator,
     ListMark: listMarkDecorator,
+    TaskMarker: taskMarkerDecorator,
   
     ...Object.fromEntries(
     [...headingNodes].map(
@@ -57,14 +59,18 @@ export const markdownDecorationsPlugin = ViewPlugin.fromClass(
             const ranges : DecorationRange[] = [];
             const builder : RangeSetBuilder<Decoration> = new RangeSetBuilder<Decoration>();
 
-            syntaxTree(state).iterate({
-                enter: (node) => {
-                    // console.log(node.name, state.doc.sliceString(node.from, node.to))
-                    const decorator = decoratorConfig[node.name];
-                    if (!decorator) return;
-                    decorator(view, node, ranges);
-                }
-            });
+            for (let {from, to} of view.visibleRanges) {
+                syntaxTree(state).iterate({
+                    from,
+                    to,
+                    enter: (node) => {
+                    //    console.log(node.name);
+                        const decorator = decoratorConfig[node.name];
+                        if (!decorator) return;
+                        decorator(view, node, ranges);
+                    }
+                });
+            }
 
             ranges.sort((a, b) => {
                 if (a.from !== b.from) {

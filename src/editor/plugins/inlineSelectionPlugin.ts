@@ -1,14 +1,5 @@
 import { EditorView, Decoration, ViewPlugin, ViewUpdate, DecorationSet } from "@codemirror/view";
 import { EditorState, RangeSetBuilder, SelectionRange } from "@codemirror/state";
-import { Update } from "next/dist/build/swc/types";
-
-// CSS (tight text highlight)
-const style = EditorView.baseTheme({
-  ".cm-inline-selection": {
-    backgroundColor: "rgba(255,0,0,0.3)",
-    borderRadius: "2px"
-  }
-});
 
 // Plugin that highlights ONLY selected text ranges
 export const inlineSelectionPlugin = ViewPlugin.fromClass(class {
@@ -27,7 +18,7 @@ export const inlineSelectionPlugin = ViewPlugin.fromClass(class {
   buildDeco(view : EditorView) {
     const builder: RangeSetBuilder<Decoration>  = new RangeSetBuilder<Decoration> ;
     const state : EditorState = view.state;
-    const ranges: readonly SelectionRange[] = state.selection.ranges;
+    const ranges: readonly SelectionRange[] = state.selection.ranges; // get the high;oght range
     console.log(ranges);
 
     for (let range of ranges) {
